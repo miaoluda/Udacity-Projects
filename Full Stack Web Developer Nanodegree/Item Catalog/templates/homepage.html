@@ -1,0 +1,75 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+	<div class="row top-menu">
+		<div class="col-md-10"><h1>Catalog</h1></div>
+		<div class="col-md-2 text-right">	
+			 <a href="{{url_for('newCatalogItem')}}" >New Item</a><br/>
+		<a href="{{ url_for('manage')}}">Manage</a>		
+		</div>
+	</div>
+	<div class="row divider blue">
+
+		</div>
+	
+
+<div class = 'flash'>
+		      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+          
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+</div>
+
+<div class="row">
+<div class="col-md-4 pull-left">
+
+<ul class="catalog">
+{%- for item in catalog recursive %}
+
+	<li>
+	<a href="/catalog/{{ item.slug|e }}">
+	{{ item.name }}	</a>
+	
+	{%- if item.children -%}
+		
+		<ul class="submenu">{{ loop(item.children) }} 
+		</ul>
+	{%- endif %}</li>
+	
+{%- endfor %}
+</ul>
+
+</div>
+
+<div class="col-md-6">
+<script type="text/javascript">
+// timeago from http://timeago.yarp.com
+jQuery(document).ready(function() {
+  jQuery("time.timeago").timeago();
+});
+</script>
+<ul class="catalog">
+{%- for item in newest  %}
+
+	<li>
+	<a href="{{ url_for('catalogItem',catalog_path=item.slug) }}">
+	{{ item.name }}	</a>
+
+    <i>in {{find_root(item)}}, added <time class="timeago" datetime="{{item.create_time}}">{{item.create_time}}</time></i>
+	</li>
+	
+{%- endfor %}
+</ul>
+
+</div>
+
+</div>
+
+{% endblock %}

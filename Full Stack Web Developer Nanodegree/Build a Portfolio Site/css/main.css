@@ -1,0 +1,279 @@
+/* common reset style - start */
+/* credit: preject part 1 "The Brighton Times"*/
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+body {
+    font-family: Arial,Helvetica, sans-serif, Roboto;
+    font-size: 1em;
+    color: #2d3c49;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 0;
+}
+
+header,
+nav,
+footer,
+section,
+article,
+div {
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+img,
+embed,
+object,
+video {
+    max-width: 100%;
+}
+
+nav a,
+button {
+    min-width: 48px;
+    min-height: 48px;
+}
+
+/* common reset style - end */
+a {
+    text-decoration: none;
+    color: #7d97ad;
+
+}
+
+a:hover {
+    color: #02b3e4;
+	background-color: #f3f3f3;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+header {
+    max-height: 158px;
+    padding-top: 60px;
+    padding-bottom: 20px;
+    font-family: 'Tzaristane Normal', 'Kanit', sans-serif, 'Open Sans', 'PT Sans';
+    text-transform: uppercase;
+    justify-content: space-between;
+}
+
+.header-title{
+    text-align: right;
+    margin-right: 5px;
+}
+
+h1 {
+    font-size: 4em;
+    font-weight: lighter;
+    position: relative;
+    line-height: 0.7em;
+    margin-bottom: 10px;
+    font-weight: 100;
+}
+
+header h4 {
+    font-size: 1.4em;
+    font-weight: 400;
+}
+
+.name-title {
+    float: right;
+}
+
+#header-logo {
+    min-width: 30px;
+    width: 10%;
+    float: left;
+}
+
+main {
+    width: 70%;
+    /*margin-left: 20%;*/
+    padding-right: 10%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+hr {
+    clear: both;
+    margin: 0.5em 0 1em 0;
+    border: 2px solid gray;;
+}
+
+.theme-pic{
+    margin: auto;
+    display: block;
+}
+
+.cols {
+    margin-top: 10px;
+}
+
+.featured {
+    flex-grow: 1;
+    width: 26%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.featured p{
+    word-wrap:break-word;
+    font-size: 1em;    
+    display:block;
+}
+
+.featured h3{
+    display: block;
+    font-size: 2.2em;    
+    text-transform: uppercase;
+    font-weight: 200;
+    padding-top: 8px;
+	text-align: center;
+}
+
+.container {
+    flex-direction: row-reverse;
+}
+
+.section-title{
+    display: block;
+    color: #7d97ad;
+    font-weight: 200;
+    font-size: 2.3em;
+    padding: 26px 0 10px 11px;
+}
+
+.sidebar {
+    flex-direction: row;
+    padding: 160px 10% 0 22%;
+}
+
+.articles {
+    flex-basis: 33.3333333%;
+    align-content: flex-start;
+    justify-content: space-between;
+    margin: -10px; /*make the pics to the edge*/
+}
+
+
+aside {
+    width: 20%;
+    flex-direction: column;
+}
+
+.squares {
+    display: block;
+    float: left;
+    width: 100%;
+    padding-top:100%;
+    min-width: 10px;
+    min-height: 10px;
+    max-width: 320px;
+}
+
+figcaption{
+    font-size: 1.3em;
+    color: #7d97ad;
+}
+
+#sq1 {
+    background-color: #02b3e4;
+}
+
+#sq2 {
+    background-color: #2d3c49;
+}
+
+#sq3 {
+    background-color: #7d97ad;
+}
+@media (max-width: 1000px){
+	.featured p a {
+		word-break: break-all;
+	}
+}
+	
+	
+@media (max-width: 800px){
+    .container {
+        flex-direction: column;
+    }
+
+    aside{
+        width:100%;
+        margin: auto;
+    }
+
+    main {
+        width: 100%;
+        padding: 0;
+    }
+
+    .articles  {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0;
+    }
+	
+	.featured {
+	    width: 100%;
+	}
+	
+    .sidebar {
+        flex-direction: row;
+        padding: 0;
+        justify-content: space-between;
+    }
+
+    header {
+        font-size: 0.8em;
+        padding: 48px 10px 5px 10px;
+    }
+
+}
+
+@media (max-width: 480px){
+    header {
+        font-size: 0.65em;
+        padding: 20px 10px 5px 10px;
+    }
+	.squares {
+		display: block;
+		float: left;
+		width: 100%;
+		padding-top:100%;
+		min-width: 20px;
+		min-height: 20px;
+		max-width: 100px;
+	}
+	.sidebar li{
+		width: 33%;
+	}
+	figcaption{
+		font-size: 0.6em;
+		color: #7d97ad;
+		word-break: break-all;
+	}
+}

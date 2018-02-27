@@ -1,0 +1,99 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+	<div class="row divider green">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row banner menu">
+		<div class="col-md-11 col-md-offset-1 padding-none">
+			<h1>Catalog Manage</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-1 padding-top">
+			<script type="text/javascript">
+			//<![CDATA[
+			window.onload=function(){
+			var uploadField = document.getElementById("file");
+			
+			uploadField.onchange = function() {
+				if(this.files[0].size > 204800){
+				alert("File should be no more than 200 KB");
+				this.value = "";
+				};
+			};
+			}//]]> 
+			</script>		
+		<h2>Batch add items</h2>
+		<p>Upload a JSON file or paste a JSON string to add mutiple items.<br/>
+		A valid JSON format is like:<br/>
+		<code>{&quot;Catalog&quot;: [
+{&quot;description&quot;: &quot;Red fruit&quot;, &quot;id&quot;: 4, &quot;level&quot;: 2, &quot;name&quot;: &quot;Red&quot;, &quot;parent_id&quot;: 2, &quot;slug&quot;: &quot;red&quot;},  <br />
+{&quot;description&quot;: &quot;An Apple A Day~&quot;, &quot;id&quot;: 7, &quot;level&quot;: 3, &quot;name&quot;: &quot;Apple&quot;, &quot;parent_id&quot;: 4, &quot;slug&quot;: &quot;apple&quot;}, <br />
+{&quot;description&quot;: &quot;For cheery coke. &quot;, &quot;id&quot;: 8, &quot;level&quot;: 3, &quot;name&quot;: &quot;Cherry&quot;, &quot;parent_id&quot;: 4, &quot;slug&quot;: &quot;cherry&quot;}, <br />
+{&quot;description&quot;: &quot;Raspberry is for pie.&quot;, &quot;id&quot;: 28, &quot;level&quot;: 3, &quot;name&quot;: &quot;Raspberry&quot;, &quot;parent_id&quot;: 4, &quot;slug&quot;: &quot;raspberry&quot;}]}</code>
+		</p>
+		<form  method=post enctype=multipart/form-data>
+				<div class="form-group">
+					
+					<div class="input-group">
+					<label for="file">Upload a JSON file:</label>
+					<input id="file" type="file" name="file" accept=".json,text/plain" >
+					<label for="jsontext">Or paste JSON in text:</label>
+					<textarea class="form-control" rows="5" id="jsontext" name="jsontext" placeholder="(Will ignore file)"></textarea>
+					
+					<label for="moveto">Pick A Category:</label><br/>
+
+					<select name = "moveto" id="moveto" >
+					
+					
+					{%- for item in catalog recursive %}
+								
+						
+						<option  value = {{item.id}}
+						
+						{% if parentid == item.id %}
+							selected="selected"
+						{% endif %}
+						> 
+						
+						{%- for n in range(item.lvl-1) %}
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							{% endfor %}
+						
+						
+							{{ item.name }}
+						
+						{%- if item.children -%}
+
+							
+							
+							{{ loop(item.children) }} 
+							
+						{%- endif %}
+						
+					{%- endfor %}
+					</option>
+					</select>
+					
+										
+					</div>
+					
+					<div class="padding-bottom"></div>
+					<button type="submit" class="btn btn-default" id="submit" >
+					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save</button>
+					<a href = '{{url_for("homepage")}}' class="btn btn-default delete">Cancel</a>
+				</div>
+			</form>
+
+		</div>
+		<div class="col-md-6 col-md-offset-1 padding-top">
+			<h2>Add a single item</h2>
+			<p><a href="{{url_for('newCatalogItem')}}" >New Item</a></p>
+		</div>
+		<div class="col-md-6 col-md-offset-1 padding-top">
+			<h2>Other functions</h2>
+			<p># TODO</p>
+		</div>
+	</div>
+{% endblock %}

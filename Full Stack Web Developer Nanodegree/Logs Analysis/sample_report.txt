@@ -1,0 +1,19 @@
+## Log Analysis for date range:
+	2016-07-01 07:00:00+00:00	-	2016-07-31 19:59:55+00:00 
+
+#### Start of Report ####
+Top 3 Most Popular Articles: 
+	Candidate is jerk, alleges rival	-	338647 views
+	Bears love berries, alleges bear	-	253801 views
+	Bad things gone, say good people	-	170098 views
+
+Top 4 Most Popular Authors: 
+	Ursula La Multa	-	507594 views
+	Rudolf von Treppenwitz	-	423457 views
+	Anonymous Contributor	-	170098 views
+	Markoff Chaney	-	84557 views
+
+Days more than 1% requests lead to HTTP errors (4XX or 5XX): 
+	Jul 17, 2016	-	   2.26% errors
+
+#### End of Report ####

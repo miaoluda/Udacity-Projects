@@ -1,0 +1,35 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+{% if catalog.children %}
+<h2> {{catalog.name}} has children, remove before delete! </h2>
+
+
+
+<ul class="catalog">
+{%- for item in catalog.children  %}
+
+	<li>
+	<a href="{{ url_for('catalogItem',catalog_path=item.slug) }}">
+	{{ item.name }}	</a>
+
+	</li>
+	
+{%- endfor %}
+</ul>
+<!-- TODO <strong><a>DELETE THEM ALL!</a></strong> -->
+{% else %}
+<h2> Are you sure you want to delete {{catalog.name}}? </h2>
+<form action="#" method = 'post'>
+
+	<button type="submit" class="btn btn-default delete" id="submit">
+	<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete</button>
+		<a href = "{{url_for('catalogItem', catalog_path=catalog.slug)}}" class="btn btn-default" >
+		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</a>
+
+</form>
+{% endif %}
+
+
+{% endblock %}

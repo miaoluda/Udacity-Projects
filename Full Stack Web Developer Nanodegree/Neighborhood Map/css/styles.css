@@ -1,0 +1,100 @@
+html, body, .container, .row {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+	
+#map {
+	height: 100%;
+	}
+
+.fade {
+	transition: opacity .1s linear;
+}
+.bb-alert {
+	display:none;
+    position: fixed;
+    bottom: 5%;
+    left: 5;
+    margin-bottom: 0;
+    font-size: 1.2em;
+    padding: 1em 1.3em;
+}
+
+.icon-addon.addon-md .glyphicon,
+.icon-addon .glyphicon, 
+.icon-addon.addon-md .fa,
+.icon-addon .fa {
+    position: absolute;
+    z-index: 2;
+    left: 10px;
+    font-size: 14px;
+    width: 20px;
+    margin-left: -2.5px;
+    text-align: center;
+    padding: 10px 0;
+    top: 1px
+}
+
+#filter:hover {
+	background-color: #f6fcff;
+}	
+.list-group, .list-group .destroy {
+	cursor: pointer; 
+}
+.list-group, .list-group .destroy {
+	cursor: pointer; 
+}
+.list-group a {
+	display: block; 
+}
+
+
+.destroy {
+	display:none;
+	position: absolute;
+	top: 0;
+	right: 8px;
+	bottom: 0;
+	width: 20px;
+	height: 20px;
+	margin: auto 0;
+	padding: 0;
+	font-size: 18px;
+	color: #dabbbb;
+	background-color: transparent;
+	transition: color 0.2s ease-out;
+}
+
+.list-group-item:hover .destroy {
+	display: block;
+}
+.destroy:hover {
+	display: block; 
+	color: #af5b5e;
+}
+#location-list{
+	list-style-type: none;
+}
+
+#searchAndAdd{
+	display: none;
+}
+
+@media (max-width: 992px){
+    #locations {
+		margin-bottom: 18px;
+        width: 100%;
+	/*	height: 30%;*/
+    }
+	
+	#map {
+		width: 100%;
+	/*	height: 70%; */
+	}
+	
+	#location-list {
+	/*		overflow-y:scroll;  */
+		height: 60%;
+	}
+}

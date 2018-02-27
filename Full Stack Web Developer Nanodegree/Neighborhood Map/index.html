@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+  <title>Neighborhood Map</title>
+  
+  <!-- put them all local if needed
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/knockout-3.4.2.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/bootbox.min.js"></script>
+
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+  <!-- put initialDate in a file, in the future it could be SQL query... -->
+  <script src="./js/initialData.js"></script>  
+
+  <!-- main CSS -->
+  <link href="./css/styles.css" rel="stylesheet">
+ </head>
+ <body>
+
+ <div class="container">
+  <div class="row">
+   <div id="locations" class="col-md-3 pull-left">
+        <h2>Locations</h2>
+        <div class="form-group">
+            <div class="input-group input-group-md">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-filter"></i></span>
+                <div class="icon-addon addon-md">
+                    <input type="text" placeholder="Filter Locations" class="form-control" id="filter" data-bind="textInput: filter" >
+                </div>
+            </div>
+        </div>
+
+        <ul id="location-list" class="list-group" data-bind="foreach: visibleLocations">
+			<li class="list-group-item" data-bind="click: $root.openInfoWindow.bind(this,$data.marker,$root.infowindow)" >	
+			<span  data-bind="text: $data.name"></span><button class="destroy btn glyphicon glyphicon-remove" data-bind="click: $root.remove"></button>
+			</li>
+		</ul>
+	<!-- TODO : add more locations.
+		<div class="" id = "searchAndAdd"> 
+		
+		<input type="text" class="form-control" placeholder="Search Location by Google Map" id="searchTextField" data-bind="" />
+		<button class="btn btn-default glyphicon glyphicon-ok " type="button" onclick="cancelAddLocation()">Save</button>
+		<button class="btn btn-default glyphicon glyphicon-remove " type="button" onclick="cancelAddLocation()">Cancel</button>
+		</div>		
+
+		<button class="btn btn-default" type="button" onclick="showAddLocation()" id="addLocation"><span  class="glyphicon glyphicon-plus"></span>Add Location</button>
+		
+		<script>
+		function showAddLocation() {
+			$("#addLocation").fadeOut(5);
+			$("#searchAndAdd").fadeIn(500);
+		};
+		
+		function cancelAddLocation() {
+			$("#addLocation").fadeIn(500);
+			$("#searchAndAdd").fadeOut(5);
+		};
+		</script>
+	-->	
+
+  </div>
+  <div id="map" class="col-md-9 pull-right"></div>
+
+ </div>
+
+ <script src="./js/app.js" defer="defer"></script> 
+ 
+ <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfPAUxj_DOiX2rMwjszReXT4A137JQqtA&v=3&libraries=places&callback=initMap"  onerror="mapErrorHandler()"> 
+ <!-- though it is not safe to expose the secret 🔑, but Google has a cool dashboard to monitor usage... -->
+ </script>
+ 
+ <div class="bb-alert alert alert-info" id="msgbox">
+     <span id="msgtext"></span>
+ </div>
+
+</div>
+</body>
+</html>

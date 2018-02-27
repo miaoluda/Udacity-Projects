@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+		<link rel="shortcut icon" href="https://d125fmws0bore1.cloudfront.net/assets/favicon-3867f43151ecbff486335ae6a96d17d91d6169d20888131b4681d15b65e1425b.ico">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+		<script src="{{ url_for('static', filename='jquery.min.js') }}">
+		</script>
+		<script src="{{ url_for('static', filename='jquery.timeago.js') }}">
+		</script>
+		<Title>Catalog App</Title>
+	</head>
+	<body>
+		<div class="container">
+			{% block content %}
+			{% endblock %}
+		</div>
+	</body>
+</html>

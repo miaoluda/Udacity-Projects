@@ -1,0 +1,27 @@
+<div class="row top-menu">
+	<div class="col-md-6">
+		<a href="/">
+			<span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home
+		</a>
+	</div>
+	<div class="col-md-6 text-right">
+
+
+		<div id="login">
+	{% if  session['username'] %}
+
+		{{ session['username'] }}, 
+		<a href="/gdisconnect">logout</a> 
+	
+		
+	{% else %}
+		<a href="{{ url_for('showLogin',next=request.url) }}">login</a> 
+
+	
+	{% endif %}
+	</div>
+
+
+		
+	</div>
+</div>
