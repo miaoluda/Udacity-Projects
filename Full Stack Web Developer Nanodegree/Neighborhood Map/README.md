@@ -6,7 +6,9 @@
 - **/css/style.css** - Custom CSS.
 - ALL OTHER FILES - Libraries and dependencies (knockout.js, bootstrap, jQuery, etc.). Make them all local~
 ## How To Use
-Download and unzip and open index.html from your browser.
+Download and unzip and open index.html from your browser,
+OR
+Preview on [Github Pages](https://miaoluda.github.io/Udacity-Projects/Full%20Stack%20Web%20Developer%20Nanodegree/Neighborhood%20Map/index.html)
 ## Features 
 - Google Map Javascript API to load map and location info.
 - Foursqure API to load additional location info, plus photos.  
