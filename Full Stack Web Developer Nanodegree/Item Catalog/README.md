@@ -1,4 +1,18 @@
 # Category Project
+
+## How To Use
+
+Try demo hosted on heroku: https://ud-catalog-project.herokuapp.com/
+
+**OR**
+
+Download, unzip, and execute application.py in your Vagrant VM:
+```sh
+python application.py
+```
+When it shows "Running on http://0.0.0.0:8000/" you can open http://localhost:8000 to view the catalog.
+If you want a brand new app, just delete catalog.db before run the app. It will let you login and lead you to the manage page. 
+
 ## Contents
 - application.py - catalog app.
 - database_setup.py - database schemas.
@@ -23,19 +37,10 @@
 - Python 2.7 or above (tested on Python 2.7 and 3.5.2).
 - [Virtual Machine from the class], or you can config your own environment referring to the virtual machine settings if you are an expert (i.e. pip install flask/sqlalchemy/werkzeug/oauth2client). 
 
-
-## How To Use
-Download, unzip, and execute application.py in your Vagrant VM:
-```sh
-python application.py
-```
-When it shows "Running on http://0.0.0.0:8000/" you can open http://localhost:8000 to view the catalog.
-If you want a whole new app, just delete catalog.db before run the app. It will let you login and lead you to the manage page. 
-
 ## JSON API
-http://localhost:8000/catalog.json for the whole catalog.
-http://localhost:8000/catalog/[slug].json for single item.
-http://localhost:8000/catalog/subtree/[slug].json for a category.
+- http://localhost:8000/catalog.json for the whole catalog.
+- http://localhost:8000/catalog/[slug].json for single item.
+- http://localhost:8000/catalog/subtree/[slug].json for a category.
 
 ## Program Design
 As a catalog is often hierarchical, I simply treat categories and items as same kind of record in database. So there is only one database table for the whole catalog. 
